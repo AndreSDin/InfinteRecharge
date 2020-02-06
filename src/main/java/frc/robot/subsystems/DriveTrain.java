@@ -42,7 +42,7 @@ public class DriveTrain extends SubsystemBase {
   right1 = new CANSparkMax(Constants.DRIVETRIAN_RIGHTCANID1, MotorType.kBrushless);
     right1.setIdleMode(CANSparkMax.IdleMode.kCoast);
       right1Encoder = right1.getEncoder();
-        right1.setInverted(true);
+        right1.setInverted(false);
 
 
   right2 = new CANSparkMax(Constants.DRIVETRIAN_RIGHTCANID2, MotorType.kBrushless);
@@ -55,7 +55,7 @@ public class DriveTrain extends SubsystemBase {
   left1 = new CANSparkMax(Constants.DRIVETRIAN_LEFTCANID1, MotorType.kBrushless);
     left1.setIdleMode(CANSparkMax.IdleMode.kCoast);
       left1Encoder = left1.getEncoder();
-        left1.setInverted(true);
+        left1.setInverted(false);
 
   left2 = new CANSparkMax(Constants.DRIVETRIAN_LEFTCANID2, MotorType.kBrushless);
     left2.follow(left1);
