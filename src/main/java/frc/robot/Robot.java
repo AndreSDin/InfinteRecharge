@@ -7,6 +7,13 @@
 
 package frc.robot;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import edu.wpi.first.wpilibj.trajectory.TrajectoryUtil;
+
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Filesystem;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -112,4 +119,13 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() {
   }
+  public void TrajectoryUtil() {
+    final String trajectoryJSON = "paths/pathweaver.json";
+    try {
+      final Path trajectoryPath = Filesystem.getDeployDirectory().toPath().resolve(trajectoryJSON);
+      TrajectoryUtil.fromPathweaverJson(trajectoryPath);
+    }catch (final IOException ex) {
+      DriverStation.reportError("Unable to open trajectory." + trajectoryJSON, ex.getStackTrace());
+    }
+    }
 }
