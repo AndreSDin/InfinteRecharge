@@ -76,7 +76,7 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public void drive(double left, double right) {
-    drive.arcadeDrive(left * 0.5, right * 0.5, false);
+    drive.arcadeDrive((left * 0.5) * -1, (right * 0.5) * -1, false);
 
   }
 
