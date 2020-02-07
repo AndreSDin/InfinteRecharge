@@ -1,2 +1,2 @@
 # InfinteRecharge
-Cool Code
+This is the coolest code ever
