@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.POVButton;
 import frc.robot.commands.CommandDriveTrain;
 import frc.robot.commands.IntakeOn;
 import frc.robot.subsystems.DriveTrain;
@@ -44,6 +45,7 @@ public class RobotContainer {
 
     m_intake.setDefaultCommand(new IntakeOn(() -> m_driver.getTriggerAxis(Hand.kLeft), m_intake));
 
+
     
 
     configureButtonBindings();
@@ -57,7 +59,11 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
 
-    
+    final POVButton dpadUp = new POVButton(m_driver, 0);
+    final POVButton dpadDown = new POVButton(m_driver, 180);
+
+
+    //dpadUp.whenPressed(command)
     
     
      

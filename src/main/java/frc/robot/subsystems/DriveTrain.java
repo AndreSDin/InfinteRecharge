@@ -80,11 +80,17 @@ public class DriveTrain extends SubsystemBase {
 
   }
 
-  public void IsInverted(boolean Bool){
-    
+  public void drive(double left, double right, boolean isInverted) {
+    if(isInverted == false){
+    drive.arcadeDrive((left * 0.5) * -1, (right * 0.5) * -1, false);
+    } else if(isInverted == true){
+      drive.arcadeDrive((left * 0.5), (right * 0.5), false);
 
+    }
 
   }
+
+  
 
   
 

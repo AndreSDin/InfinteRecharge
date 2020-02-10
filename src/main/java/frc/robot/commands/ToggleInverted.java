@@ -8,14 +8,22 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.DriveTrain;
 
 public class ToggleInverted extends CommandBase {
   /**
    * Creates a new ToggleInverted.
    */
-  public ToggleInverted() {
+  private DriveTrain m_subsystem;
+  private boolean m_toggle;
+
+  public ToggleInverted(boolean toggle, DriveTrain subsystem) {
     // Use addRequirements() here to declare subsystem dependencies.
-  }
+    m_toggle = toggle;
+    m_subsystem = subsystem;
+    addRequirements(subsystem);
+
+    }
 
   // Called when the command is initially scheduled.
   @Override
@@ -25,6 +33,8 @@ public class ToggleInverted extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    
+
   }
 
   // Called once the command ends or is interrupted.
