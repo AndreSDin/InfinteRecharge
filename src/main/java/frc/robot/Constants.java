@@ -26,6 +26,10 @@ public final class Constants {
    public static final int INTAKE_RIGHTCANID = 1;
    public static final int INTAKE_LEFTCANID = 6;
 
+   //Shooter CAN ID's
+   public static final int SHOOTER_BASECANID = 0;
+   public static final int SHOOTER_SHOOTCANID = 0;
+
 
    
 
