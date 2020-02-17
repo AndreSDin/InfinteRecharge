@@ -8,15 +8,17 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import com.revrobotics.CANEncoder;
-import com.revrobotics.CANSparkMax;
+//import com.revrobotics.CANEncoder;
+//import com.revrobotics.CANSparkMax;
 
+import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import com.revrobotics.CANSparkMaxLowLevel;
+//import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+//import com.revrobotics.CANSparkMaxLowLevel;
 
 public class Shooter extends SubsystemBase {
   /**
@@ -26,6 +28,7 @@ public class Shooter extends SubsystemBase {
 private WPI_TalonSRX m_turret;
 //private CANEncoder turretencoder;
 private DifferentialDrive turnbase;
+private SpeedController spdTurnBase;
 
   
   public Shooter() {
@@ -34,7 +37,8 @@ private DifferentialDrive turnbase;
       //m_turret.setIdleMode(CANSparkMax.IdleMode.kCoast);
         //turretencoder = m_turret.getEncoder();
       m_turret = new WPI_TalonSRX(Constants.SHOOTER_BASECANID);
-      turnbase = new DifferentialDrive(m_turret, null);
+      //turnbase = new DifferentialDrive(m_turret, null);
+      spdTurnBase = new SpeedControllerGroup(m_turret);
 
 
 
@@ -43,7 +47,7 @@ private DifferentialDrive turnbase;
 
     public void TurnBase(double trigger) {
      
-    turnbase.arcadeDrive(trigger * 0.50, 0);
+    spdTurnBase.set(trigger * 0.75);
 
     
   }

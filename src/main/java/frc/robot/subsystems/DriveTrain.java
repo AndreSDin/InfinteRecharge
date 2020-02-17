@@ -58,8 +58,8 @@ public class DriveTrain extends SubsystemBase {
         left1.setInverted(true);
 
   left2 = new CANSparkMax(Constants.DRIVETRIAN_LEFTCANID2, MotorType.kBrushless);
-    left2.follow(left1);
-      left2Encoder = left2.getEncoder();
+  left2.follow(left1);
+    left2Encoder = left2.getEncoder();
 
       m_right = new SpeedControllerGroup(right1, right2);
       m_left = new SpeedControllerGroup(left1, left2);
@@ -80,7 +80,7 @@ public class DriveTrain extends SubsystemBase {
 
   }
 
-  public void drive(double left, double right, boolean isInverted) {
+  /*public void drive(double left, double right, boolean isInverted) {
     if(isInverted == false){
     drive.arcadeDrive((left * 0.5) * -1, (right * 0.5) * -1, false);
     } else if(isInverted == true){
@@ -88,7 +88,7 @@ public class DriveTrain extends SubsystemBase {
 
     }
 
-  }
+  }*/
 
   
 
