@@ -22,21 +22,24 @@ public class Shooter extends SubsystemBase {
    * Creates a new Shooter.
    */
 private CANSparkMax m_turret;
-private CANEncoder e_turret;
+private CANEncoder turretencoder;
+private DifferentialDrive turnbase;
 
   
   public Shooter() {
 
     m_turret = new CANSparkMax(Constants.SHOOTER_BASECANID, MotorType.kBrushless);
       m_turret.setIdleMode(CANSparkMax.IdleMode.kCoast);
-        e_turret = m_turret.getEncoder();
+        turretencoder = m_turret.getEncoder();
     
-    }
-    DifferentialDrive turnbase = new DifferentialDrive(m_turret, null);
+      turnbase = new DifferentialDrive(m_turret, null);
 
-  public void TurnBase(double trigger) {
+    }
+    
+
+    public void TurnBase(double trigger) {
      
-    turnbase.arcadeDrive(trigger, 0);
+    turnbase.arcadeDrive(trigger * 0.50, 0);
 
     
   }
