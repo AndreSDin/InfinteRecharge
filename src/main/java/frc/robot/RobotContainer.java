@@ -47,9 +47,9 @@ public class RobotContainer {
     m_drivetrain.setDefaultCommand(new CommandDriveTrain(() -> m_driver.getRawAxis(1), 
     () -> m_driver.getRawAxis(4), m_drivetrain));
 
-    m_intake.setDefaultCommand(new IntakeOn(() -> m_driver.getTriggerAxis(Hand.kLeft), m_intake));
+    m_intake.setDefaultCommand(new IntakeOn(() -> m_operator.getTriggerAxis(Hand.kLeft), m_intake));
 
-    m_shooter.setDefaultCommand(new ShooterTurret(() -> m_driver.getTriggerAxis(Hand.kRight), m_shooter));
+    m_shooter.setDefaultCommand(new ShooterTurret(() -> m_operator.getTriggerAxis(Hand.kRight), m_shooter));
     
 
     configureButtonBindings();
