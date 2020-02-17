@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 
@@ -21,18 +22,21 @@ public class Shooter extends SubsystemBase {
   /**
    * Creates a new Shooter.
    */
-private CANSparkMax m_turret;
-private CANEncoder turretencoder;
+//private CANSparkMax m_turret;
+private WPI_TalonFX m_turret;
+//private CANEncoder turretencoder;
 private DifferentialDrive turnbase;
 
   
   public Shooter() {
 
-    m_turret = new CANSparkMax(Constants.SHOOTER_BASECANID, MotorType.kBrushless);
-      m_turret.setIdleMode(CANSparkMax.IdleMode.kCoast);
-        turretencoder = m_turret.getEncoder();
+    //m_turret = new CANSparkMax(Constants.SHOOTER_BASECANID, MotorType.kBrushless);
+      //m_turret.setIdleMode(CANSparkMax.IdleMode.kCoast);
+        //turretencoder = m_turret.getEncoder();
     
-      turnbase = new DifferentialDrive(m_turret, null);
+      //turnbase = new DifferentialDrive(m_turret, null);
+
+
 
     }
     
