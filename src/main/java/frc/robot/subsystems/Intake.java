@@ -14,11 +14,10 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import com.revrobotics.CANEncoder;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonFXConfiguration;
 
 
 public class Intake extends SubsystemBase {
@@ -26,23 +25,23 @@ public class Intake extends SubsystemBase {
    * Creates a new Intake.
    */
 
-  private CANSparkMax left1;
-  private CANSparkMax right1;
-  private CANEncoder left1Encoder;
-  private CANEncoder left2Encoder;
-  private CANEncoder right1Encoder;
-  private CANEncoder right2Encoder;
+  private WPI_TalonFX left1;
+  private WPI_TalonFX right1;
+  private double leftSpeed = 0;
+  private double rightSpeed = 0;
+ 
+  
+  
   private DifferentialDrive intake;
 
 
   public Intake() {
-  right1 = new CANSparkMax(Constants.INTAKE_RIGHTCANID, MotorType.kBrushless);
-    right1.setIdleMode(CANSparkMax.IdleMode.kBrake);
-      right1Encoder = right1.getEncoder();
+  right1 = new WPI_TalonFX(Constants.INTAKE_RIGHTCANID);
+    
+    
 
-    left1 = new CANSparkMax(Constants.INTAKE_LEFTCANID, MotorType.kBrushless);
-      left1.setIdleMode(CANSparkMax.IdleMode.kBrake);
-        left1Encoder = left1.getEncoder();
+    left1 = new WPI_TalonFX(Constants.INTAKE_LEFTCANID);
+      
 
         intake = new DifferentialDrive(left1, right1);
       
@@ -52,10 +51,10 @@ public class Intake extends SubsystemBase {
 
   public void IntakeOn(double intaketrigger){
     intake.arcadeDrive(intaketrigger * 0.75, 0);
-
-
+    
+    
+    
   }
-
   
   @Override
   public void periodic() {
