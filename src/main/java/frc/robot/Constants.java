@@ -17,17 +17,17 @@ package frc.robot;
  */
 public final class Constants {
    //Drivetrain CAN ID's
-   public static final int DRIVETRIAN_RIGHTCANID1 = 4;
-   public static final int DRIVETRIAN_RIGHTCANID2 = 5;
-   public static final int DRIVETRIAN_LEFTCANID1 = 2;
-   public static final int DRIVETRIAN_LEFTCANID2 = 3;
+   public static final int DRIVETRIAN_RIGHTCANID1 = 1;
+   public static final int DRIVETRIAN_RIGHTCANID2 = 2;
+   public static final int DRIVETRIAN_LEFTCANID1 = 3;
+   public static final int DRIVETRIAN_LEFTCANID2 = 4;
 
    //Intake CAN ID's
    public static final int INTAKE_RIGHTCANID = 1;
    public static final int INTAKE_LEFTCANID = 6;
 
    //Shooter CAN ID's
-   public static final int SHOOTER_BASECANID = 0;
+   public static final int SHOOTER_BASECANID = 7;
    public static final int SHOOTER_SHOOTCANID = 0;
 
 
