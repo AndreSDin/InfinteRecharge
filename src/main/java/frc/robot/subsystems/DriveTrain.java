@@ -42,16 +42,13 @@ public class DriveTrain extends SubsystemBase {
   right1 = new CANSparkMax(Constants.DRIVETRIAN_RIGHTCANID1, MotorType.kBrushless);
     right1.setIdleMode(CANSparkMax.IdleMode.kBrake);
       right1Encoder = right1.getEncoder();
-        right1.setInverted(true);
+        //right1.setInverted(true);
 
 
   right2 = new CANSparkMax(Constants.DRIVETRIAN_RIGHTCANID2, MotorType.kBrushless);
-  right2Encoder = right2.getEncoder();
-    right1.follow(right2);
-     
+    right2.follow(right1);
+        right2Encoder = right2.getEncoder();
 
-      
-    
 
   left1 = new CANSparkMax(Constants.DRIVETRIAN_LEFTCANID1, MotorType.kBrushless);
     left1.setIdleMode(CANSparkMax.IdleMode.kBrake);
