@@ -46,14 +46,12 @@ public class DriveTrain extends SubsystemBase {
 
 
   right2 = new CANSparkMax(Constants.DRIVETRIAN_RIGHTCANID2, MotorType.kBrushless);
-<<<<<<< HEAD
     right2.follow(right1);
       right2Encoder = right2.getEncoder();
-=======
-  right2Encoder = right2.getEncoder();
-    right1.follow(right2);
+
+
      
->>>>>>> parent of 7e142e1... Removed some suff
+
 
       
     

@@ -23,12 +23,12 @@ public final class Constants {
    public static final int DRIVETRIAN_LEFTCANID2 = 4;
 
    //Intake CAN ID's
-   public static final int INTAKE_RIGHTCANID = 0;
-   public static final int INTAKE_LEFTCANID = 0;
+   public static final int INTAKE_RIGHTCANID = 6;
+   public static final int INTAKE_LEFTCANID = 7;
 
    //Shooter CAN ID's
    public static final int SHOOTER_BASECANID = 5;
-   public static final int SHOOTER_SHOOTCANID = 0;
+   public static final int SHOOTER_SHOOTCANID = 8;
 
 
    
