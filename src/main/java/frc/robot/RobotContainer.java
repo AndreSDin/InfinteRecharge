@@ -14,8 +14,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.POVButton;
 import frc.robot.commands.CommandDriveTrain;
+import frc.robot.commands.IntakeOn;
 import frc.robot.commands.ShooterTurret;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 import frc.robot.commands.CommandDriveTrain;;
 
@@ -28,6 +30,7 @@ import frc.robot.commands.CommandDriveTrain;;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here..
   private final DriveTrain m_drivetrain = new DriveTrain();
+  private final Intake m_intake = new Intake();
   private final Shooter m_shooter = new Shooter();  
   //Controller Definitions
   private final XboxController m_driver = new XboxController(0);
@@ -44,9 +47,9 @@ public class RobotContainer {
     m_drivetrain.setDefaultCommand(new CommandDriveTrain(() -> m_driver.getRawAxis(1), 
     () -> m_driver.getRawAxis(4), m_drivetrain));
 
-    
+    m_intake.setDefaultCommand(new IntakeOn(() -> m_operator.getTriggerAxis(Hand.kLeft), m_intake));
 
-    m_shooter.setDefaultCommand(new ShooterTurret(() -> m_driver.getTriggerAxis(Hand.kRight), m_shooter));
+    m_shooter.setDefaultCommand(new ShooterTurret(() -> m_operator.getTriggerAxis(Hand.kRight), m_shooter));
     
 
     configureButtonBindings();

@@ -47,7 +47,7 @@ private SpeedController spdTurnBase;
 
     public void TurnBase(double trigger) {
      
-    spdTurnBase.set(trigger * 0.50);
+    spdTurnBase.set(trigger * 0.75);
 
     
   }
