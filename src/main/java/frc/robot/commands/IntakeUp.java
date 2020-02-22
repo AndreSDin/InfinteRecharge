@@ -8,19 +8,20 @@
 package frc.robot.commands;
 
 import java.util.function.DoubleSupplier;
-
+import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Intake;
 
-public class IntakeOn extends CommandBase {
+public class IntakeUp extends CommandBase {
   /**
    * Creates a new IntakeOn.
    */
   private final Intake m_intake;
-  private final DoubleSupplier m_trigger;
+  private final double m_trigger;
   
 
-  public IntakeOn(DoubleSupplier trigger, Intake subsystem) {
+  public IntakeUp(double trigger, Intake subsystem) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_trigger = trigger;
     m_intake = subsystem;
@@ -37,10 +38,11 @@ public class IntakeOn extends CommandBase {
   @Override
   public void execute() {
     
-    m_intake.IntakeOn(m_trigger.getAsDouble());
+    m_intake.IntakeUp(getRawAxis(Hand.kLeft));
 
   }
 
+  
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {

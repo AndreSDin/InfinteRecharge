@@ -36,16 +36,18 @@ public class DriveTrain extends SubsystemBase {
 
   public DriveTrain() {
   m_leftMaster = new WPI_TalonFX(Constants.DRIVETRIAN_LEFTCANID1);
+  m_leftMaster.addChild(m_leftFollower);
   
-  //left2 = new TalonFX(Constants.DRIVETRIAN_LEFTCANID2);
+  m_leftFollower = new WPI_TalonFX(Constants.DRIVETRIAN_LEFTCANID2);
 
-  //m_left = new SpeedControllerGroup(left1, left2);
+  //m_left = new SpeedControllerGroup(m_leftMaster, m_leftFollower);
 
   m_rightMaster = new WPI_TalonFX(Constants.DRIVETRIAN_RIGHTCANID1);
+  m_rightMaster.addChild(m_rightFollower);
 
-  //right2 = new TalonFX(Constants.DRIVETRIAN_RIGHTCANID2);
+  m_rightFollower = new WPI_TalonFX(Constants.DRIVETRIAN_RIGHTCANID2);
 
-  //m_right = new SpeedControllerGroup(right1, right2);
+  //m_right = new SpeedControllerGroup(m_rightMaster, m_rightFollower);
     
 
       
@@ -61,7 +63,7 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public void drive(double left, double right) {
-    //drive.arcadeDrive((left * 0.5) * -1, (right * 0.5) * -1, false);
+    drive.arcadeDrive((left * 0.5), (right * 0.5), false);
     
 
 

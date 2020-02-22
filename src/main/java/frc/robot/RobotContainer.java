@@ -13,7 +13,8 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.CommandDriveTrain;
-import frc.robot.commands.IntakeOn;
+import frc.robot.commands.IntakeUp;
+import frc.robot.commands.IntakeDown;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.commands.CommandDriveTrain;;
@@ -42,7 +43,8 @@ public class RobotContainer {
     m_drivetrain.setDefaultCommand(new CommandDriveTrain(() -> m_driver.getRawAxis(1), 
     () -> m_driver.getRawAxis(4), m_drivetrain));
 
-    m_intake.setDefaultCommand(new IntakeOn(() -> m_driver.getTriggerAxis(Hand.kLeft), m_intake));
+    m_intake.setDefaultCommand(new IntakeUp(() -> m_driver.getTriggerAxis(Hand.kRight), m_intake));
+    m_intake.setDefaultCommand(new IntakeDown(() -> m_driver.getTriggerAxis(Hand.kLeft), m_intake));
 
     
 
