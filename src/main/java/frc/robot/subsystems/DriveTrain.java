@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import com.ctre.phoenix.sensors.CANCoder;
 
@@ -37,15 +38,19 @@ public class DriveTrain extends SubsystemBase {
   public DriveTrain() {
   m_leftMaster = new WPI_TalonFX(Constants.DRIVETRIAN_LEFTCANID1);
   m_leftMaster.addChild(m_leftFollower);
+  m_leftMaster.setNeutralMode(NeutralMode.Brake);
   
   m_leftFollower = new WPI_TalonFX(Constants.DRIVETRIAN_LEFTCANID2);
+  m_leftFollower.setNeutralMode(NeutralMode.Brake);
 
   //m_left = new SpeedControllerGroup(m_leftMaster, m_leftFollower);
 
   m_rightMaster = new WPI_TalonFX(Constants.DRIVETRIAN_RIGHTCANID1);
   m_rightMaster.addChild(m_rightFollower);
+  m_rightMaster.setNeutralMode(NeutralMode.Brake);
 
   m_rightFollower = new WPI_TalonFX(Constants.DRIVETRIAN_RIGHTCANID2);
+  m_rightFollower.setNeutralMode(NeutralMode.Brake);
 
   //m_right = new SpeedControllerGroup(m_rightMaster, m_rightFollower);
     
@@ -68,13 +73,6 @@ public class DriveTrain extends SubsystemBase {
 
 
   }
-
-  public void IsInverted(boolean Bool){
-    
-
-
-  }
-
   
 
 }

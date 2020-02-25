@@ -43,8 +43,8 @@ public class RobotContainer {
     m_drivetrain.setDefaultCommand(new CommandDriveTrain(() -> m_driver.getRawAxis(1), 
     () -> m_driver.getRawAxis(4), m_drivetrain));
 
-    m_intake.setDefaultCommand(new IntakeUp(() -> m_driver.getTriggerAxis(Hand.kRight), m_intake));
-    m_intake.setDefaultCommand(new IntakeDown(() -> m_driver.getTriggerAxis(Hand.kLeft), m_intake));
+    //m_intake.setDefaultCommand(new IntakeUp(() -> m_driver.getTriggerAxis(Hand.kRight), m_intake));
+    //m_intake.setDefaultCommand(new IntakeDown(() -> m_driver.getTriggerAxis(Hand.kLeft), m_intake));
 
     
 
